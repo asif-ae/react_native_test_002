@@ -6,37 +6,24 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme
-} from 'react-native';
+import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import Navigation from './src/navigation/Navigation';
-
 
 // Create a QueryClient instance
 const queryClient = new QueryClient();
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: '#ffffff',
   };
 
   return (
     <SafeAreaView style={[backgroundStyle, styles.container]}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
       <QueryClientProvider client={queryClient}>
-
-      <Navigation />
+        <Navigation />
       </QueryClientProvider>
     </SafeAreaView>
   );

@@ -45,6 +45,7 @@ const Navigation: React.FC = () => {
           tabBarInactiveTintColor: '#333',
           tabBarStyle: styles.tabBarStyle,
           tabBarLabelStyle: styles.tabBarLabelStyle,
+          headerShown: false,
         })}>
         <Tab.Screen name="Bookings" component={BookingsScreen} />
         <Tab.Screen name="Activities" component={ActivitiesScreen} />
