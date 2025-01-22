@@ -13,8 +13,13 @@ import {
   useColorScheme
 } from 'react-native';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import AppNavigator from './src/navigation/AppNavigator';
+import Navigation from './src/navigation/Navigation';
+
+
+// Create a QueryClient instance
+const queryClient = new QueryClient();
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -29,7 +34,10 @@ function App(): React.JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <AppNavigator />
+      <QueryClientProvider client={queryClient}>
+
+      <Navigation />
+      </QueryClientProvider>
     </SafeAreaView>
   );
 }
