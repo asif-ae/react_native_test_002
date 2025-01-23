@@ -1,82 +1,161 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Project: Todo App
 
-# Getting Started
+This project is a **React Native** application, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli). It is designed to fetch and display data from [JSONPlaceholder](https://jsonplaceholder.typicode.com/todos) and implement a design as per the provided PDF.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- Fetch data from [JSONPlaceholder](https://jsonplaceholder.typicode.com/todos).
+- Display data in the **Activities** tab.
+- Clean and modular code.
+- Attention to detail and adherence to the provided design.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+---
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Prerequisites
+
+Before starting, make sure you have completed the [React Native Environment Setup](https://reactnative.dev/docs/environment-setup) for your platform (macOS/Windows/Linux). Specifically:
+- **Node.js** (LTS version recommended).
+- **React Native CLI**.
+- **Android Studio** for Android emulators.
+
+> **Note**: Ensure that you can create and run a basic React Native application before proceeding.
+
+---
+
+## Getting Started
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/asif-ae/react_native_test_002.git
+cd react_native_test_002
+```
+
+---
+
+### Step 2: Install Dependencies
+
+Install the required packages using either `npm`:
+
+```bash
+# using npm
+npm install
+```
+
+---
+
+### Step 3: Start the Metro Server
+
+Metro is the JavaScript bundler for React Native. Start it with:
 
 ```bash
 # using npm
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Start your Application
+---
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+### Step 4: Run the Application
 
-### For Android
+#### For Android
+
+Ensure your emulator is running or a physical device is connected with USB debugging enabled.
 
 ```bash
 # using npm
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### For iOS
+#### For iOS (if applicable)
+
+Ensure you have Xcode installed and properly configured.
 
 ```bash
 # using npm
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+---
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+### Step 5: Fetch and Display Data
 
-## Step 3: Modifying your App
+The app automatically fetches data from [JSONPlaceholder](https://jsonplaceholder.typicode.com/todos) and displays it in the **Activities** tab. Follow these steps to test the data rendering:
+* Open the `Activities` tab in the app to see the data rendered.
 
-Now that you have successfully run the app, let's modify it.
+---
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## Project File Structure
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+```plaintext
+.
+├── android/                  # Native Android code
+├── ios/                      # Native iOS code
+├── node_modules/             # Node.js dependencies
+├── src/
+│   ├── api/                  # API configuration and calls
+│   │   └── todos.ts          # API for fetching todos data
+│   ├── assets/               # Static assets like images
+│   │   └── album.png         # Sample album image
+│   ├── components/           # Reusable components
+│   │   ├── Activities/
+│   │   │   ├── ErrorState.tsx      # Error state UI for activities
+│   │   │   ├── Loading.tsx         # Loading indicator for activities
+│   │   │   └── TodoCard.tsx        # Card for individual todo items
+│   │   ├── Bookings/
+│   │   │   ├── DatePicker.tsx      # Date picker component
+│   │   │   ├── Header.tsx          # Header component
+│   │   │   ├── SearchBar.tsx       # Search bar component
+│   │   │   └── TimePicker.tsx      # Time picker component
+│   │   └── Spacer.tsx              # Spacer component for consistent spacing
+│   ├── navigation/           # Navigation configuration
+│   │   └── Navigation.tsx    # Main navigation setup
+│   ├── screens/              # App screens
+│   │   ├── ActivitiesScreen.tsx    # Screen for activities
+│   │   ├── BookingsScreen.tsx      # Screen for bookings
+│   │   ├── MenuScreen.tsx          # Screen for menu
+│   │   └── NotificationsScreen.tsx # Screen for notifications
+│   ├── types/                # Shared TypeScript types
+│   │   └── index.ts          # TypeScript type definitions
+├── package.json              # Project dependencies
+├── App.tsx                   # Main entry point of the app
+├── README.md                 # Documentation for the project
+```
 
-## Congratulations! :tada:
+---
 
-You've successfully run and modified your React Native App. :partying_face:
+## Building a Release APK (Android)
 
-### Now what?
+1. Navigate to the `android` directory:
+   ```bash
+   cd android
+   ```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+2. Build the APK:
+   ```bash
+   ./gradlew assembleRelease
+   ```
 
-# Troubleshooting
+3. Find the APK in the following location:
+   ```plaintext
+   android/app/build/outputs/apk/release/app-universal-release.apk
+   ```
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+---
 
-# Learn More
+## Troubleshooting
 
-To learn more about React Native, take a look at the following resources:
+If you encounter issues, refer to the [Troubleshooting Guide](https://reactnative.dev/docs/troubleshooting).
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### Common Issues
+- **Metro Bundler not starting**:
+  ```bash
+  npx react-native start --reset-cache
+  ```
+- **Android emulator not found**: Ensure you have started the emulator in Android Studio or connected a device via USB.
+- **Build errors**: Run `npm install` again to ensure all dependencies are installed.
 
-android/app/build/outputs/apk/release/app-universal-release.apk
+---
 
+### Congratulations! 🎉
+
+You have successfully set up the environment and run the **React Native Todo App**! 🚀
